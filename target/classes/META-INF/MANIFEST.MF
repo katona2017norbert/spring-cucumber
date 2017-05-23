@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: spring-cucumber-example
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: norbi
+Implementation-Vendor-Id: ro.tibor
+Build-Jdk: 1.8.0_112
+Implementation-URL: http://projects.spring.io/spring-boot/spring-examp
+ le/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
