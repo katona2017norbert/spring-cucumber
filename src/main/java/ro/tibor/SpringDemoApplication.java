@@ -23,4 +23,5 @@ public class SpringDemoApplication extends SpringBootServletInitializer {
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
+    
 }

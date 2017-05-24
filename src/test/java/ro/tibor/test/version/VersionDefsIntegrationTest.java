@@ -27,4 +27,5 @@ public class VersionDefsIntegrationTest extends SpringIntegrationTest {
     public void the_client_receives_server_version_body(String version) throws Throwable {
         assertThat(latestResponse.getBody(), is(version));
     }
+    
 }

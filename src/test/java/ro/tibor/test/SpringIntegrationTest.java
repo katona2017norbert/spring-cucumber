@@ -22,18 +22,22 @@ import ro.tibor.SpringDemoApplication;
 @WebAppConfiguration
 @IntegrationTest
 public class SpringIntegrationTest {
-    protected static ResponseResults latestResponse = null;
+    
+	protected static ResponseResults latestResponse = null;
 
     @Autowired
     protected RestTemplate restTemplate;
 
     protected void executeGet(String url) throws IOException {
+    	
         final Map<String, String> headers = new HashMap<>();
         headers.put("Accept", "application/json");
+        
         final HeaderSettingRequestCallback requestCallback = new HeaderSettingRequestCallback(headers);
         final ResponseResultErrorHandler errorHandler = new ResponseResultErrorHandler();
 
         restTemplate.setErrorHandler(errorHandler);
+        
         latestResponse = restTemplate.execute(url, HttpMethod.GET, requestCallback, new ResponseExtractor<ResponseResults>() {
             @Override
             public ResponseResults extractData(ClientHttpResponse response) throws IOException {
@@ -48,8 +52,10 @@ public class SpringIntegrationTest {
     }
 
     protected void executePost(String url) throws IOException {
+    	
         final Map<String, String> headers = new HashMap<>();
         headers.put("Accept", "application/json");
+        
         final HeaderSettingRequestCallback requestCallback = new HeaderSettingRequestCallback(headers);
         final ResponseResultErrorHandler errorHandler = new ResponseResultErrorHandler();
 
@@ -58,6 +64,7 @@ public class SpringIntegrationTest {
         }
 
         restTemplate.setErrorHandler(errorHandler);
+        
         latestResponse = restTemplate.execute(url, HttpMethod.POST, requestCallback, new ResponseExtractor<ResponseResults>() {
             @Override
             public ResponseResults extractData(ClientHttpResponse response) throws IOException {
@@ -72,6 +79,7 @@ public class SpringIntegrationTest {
     }
 
     private class ResponseResultErrorHandler implements ResponseErrorHandler {
+    	
         private ResponseResults results = null;
         private Boolean hadError = false;
 
@@ -89,5 +97,7 @@ public class SpringIntegrationTest {
         public void handleError(ClientHttpResponse response) throws IOException {
             results = new ResponseResults(response);
         }
+        
     }
+    
 }

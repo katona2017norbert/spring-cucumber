@@ -8,10 +8,12 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.http.client.ClientHttpResponse;
 
 public class ResponseResults {
+	
     private final ClientHttpResponse theResponse;
     private final String body;
 
     protected ResponseResults(final ClientHttpResponse response) throws IOException {
+    	
         this.theResponse = response;
         final InputStream bodyInputStream = response.getBody();
         if (null == bodyInputStream) {
@@ -21,6 +23,7 @@ public class ResponseResults {
             IOUtils.copy(bodyInputStream, stringWriter);
             this.body = stringWriter.toString();
         }
+        
     }
 
     public ClientHttpResponse getTheResponse() {
@@ -30,4 +33,5 @@ public class ResponseResults {
     public String getBody() {
         return body;
     }
+    
 }

@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class NorbiController {
 
-	@RequestMapping(method = { RequestMethod.GET }, value = { "/norbi1" })
+    @RequestMapping(method = { RequestMethod.GET }, value = { "/norbi" })
     public String sayHello(HttpServletResponse response) {
-        return "norbi1";
+        return "norbi";
     }
 
 }

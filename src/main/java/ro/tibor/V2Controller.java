@@ -23,4 +23,5 @@ public class V2Controller {
     public String egyKetto3(HttpServletResponse response) {
 		return "" + (5 + 1);
     }
+	
 }

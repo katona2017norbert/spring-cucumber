@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class HeaderSettingRequestCallback implements RequestCallback {
+	
     final Map<String, String> requestHeaders;
 
     private String body;
@@ -22,6 +23,7 @@ public class HeaderSettingRequestCallback implements RequestCallback {
 
     @Override
     public void doWithRequest(ClientHttpRequest request) throws IOException {
+    	
         final HttpHeaders clientHeaders = request.getHeaders();
         for (final Map.Entry<String, String> entry : requestHeaders.entrySet()) {
             clientHeaders.add(entry.getKey(), entry.getValue());
@@ -29,5 +31,7 @@ public class HeaderSettingRequestCallback implements RequestCallback {
         if (null != body) {
             request.getBody().write(body.getBytes());
         }
+        
     }
+    
 }

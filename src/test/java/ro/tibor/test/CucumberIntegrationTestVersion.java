@@ -8,4 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = "src/test/resources/version",
 glue = {"ro.tibor.test.version"})
 public class CucumberIntegrationTestVersion {
+	
+	
 }

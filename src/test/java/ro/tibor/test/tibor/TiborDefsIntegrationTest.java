@@ -11,7 +11,8 @@ import cucumber.api.java.en.When;
 import ro.tibor.test.SpringIntegrationTest;
 
 public class TiborDefsIntegrationTest extends SpringIntegrationTest {
-    @When("^the client calls as post (.*)$")
+    
+	@When("^the client calls as post (.*)$")
     public void the_client_calls_as_post(String url) throws Throwable {
         executePost("http://localhost:8080"+url);
     }
@@ -32,5 +33,6 @@ public class TiborDefsIntegrationTest extends SpringIntegrationTest {
     public void the_client_receives_status_code_of(int statusCode) throws Throwable {
         final HttpStatus currentStatusCode = latestResponse.getTheResponse().getStatusCode();
         assertThat("status code is incorrect : " + latestResponse.getBody(), currentStatusCode.value(), is(statusCode));
-    }    
+    } 
+    
 }
